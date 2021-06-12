@@ -1,0 +1,84 @@
+起動＆map.pug作成
+gnuplot
+plot 'returnmap1.dat' w linespoints 
+
+set size 0.75, 1
+unset key
+unset border
+unset xtics
+unset ytics
+plot [-40:20][-40:20] 'square4.dat' w lines
+set terminal png
+set output 'square4.png'
+replot
+set terminal wxt
+
+片対数プロット
+set logscale y
+
+set parametric
+
+y=-4*x*x+4*x
+y=1-abs(1-2*x) //絶対値
+y=2*x, 2*x-1
+10*x,10*x-1,10*x-2,10*x-3,10*x-4,10*x-5,10*x-6,10*x-7,10*x-8,10*x-9
+
+plot [0:1][0:1] 'returnmap4.dat', 10*x,10*x-1,10*x-2,10*x-3,10*x-4,10*x-5,10*x-6,10*x-7,10*x-8,10*x-9
+
+set terminal png
+set parametric
+plot [t=0:1] 0.1,t
+set output 'returnmap4.png'
+replot
+plot [t=0:1] 0.2,t
+
+set multiplot
+plot [0:1][0:1] 'returnmap3.dat', 2*x, 2*x-1
+set parametric
+plot [t=0:1] 0.1,t
+
+set terminal png
+set output 'malthus4.png'
+replot
+plot [t=0:1] 0.2,t
+
+set arrow from 0.5 , 0 to 0.5 , 1 nohead
+
+y=0.1*exp(3*x)
+
+plot [0:1][0:0.2] "Malthus3.dat" w linespoints, "Malthus3_d.dat" w linespoints
+plot [0:1][0:2] "Malthus2.dat" w linespoints, 0.1*exp(3*x)
+
+
+plot [0:2][0:1] "logistic4_3.dat" w linespoints, "logistic4_4.dat" w linespoints
+plot [0:2][-1:0] "logistic5_2.dat" w linespoints, -0.1*exp(3*x)/(1+0.1-0.1*exp(3*x))
+
+1.1*exp(3*x)/(1-1.1+1.1*exp(3*x))
+
+set terminal png
+set output 'bifurcationdiagram.png'
+set output 'logisticHistogram.png'
+set output 'sorthistogram.png'
+replot
+
+plot "logistichitogram.dat" w boxes, 1/(pi*sqrt(x*(1-x)))
+plot "sortLogistic.dat", (-2*(cos(x))**2)/pi
+plot [0:1][0:1]"sortLogistic.dat", (pi/2-asin(1-2*x))/pi
+
+
+plot "Bernoulli0.dat" w boxes, 3*x**2
+plot "Bernoulli1.dat" w boxes, (3*x**2+3*x+3/2)/4
+plot "Bernoulli2.dat" w boxes, (3*x**2+9*x+21/2)/16
+plot "Bernoulli3.dat" w boxes, (3*x**2+21*x+105/2)/64
+plot "Bernoulli4.dat" w boxes, (3*x**2+45*x+467/2)/256
+
+set terminal png
+set output 'Bernoulli0.png'
+set output 'Bernoulli1.png'
+set output 'Bernoulli2.png'
+set output 'Bernoulli3.png'
+set output 'Bernoulli4.png'
+set output 'PPF.png'
+
+set xlabel "コメ"
+set ylabel "クルマ"
