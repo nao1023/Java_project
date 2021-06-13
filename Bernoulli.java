@@ -1,7 +1,7 @@
 
 import java.lang.Math;
 
-public class Bernpoulli {
+public class Bernoulli {
   public static void main(String[] args) {
     double[] x=new double[20];
     
