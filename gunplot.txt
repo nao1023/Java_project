@@ -66,11 +66,13 @@ plot "sortLogistic.dat", (-2*(cos(x))**2)/pi
 plot [0:1][0:1]"sortLogistic.dat", (pi/2-asin(1-2*x))/pi
 
 
-plot "Bernoulli0.dat" w boxes, 3*x**2
-plot "Bernoulli1.dat" w boxes, (3*x**2+3*x+3/2)/4
-plot "Bernoulli2.dat" w boxes, (3*x**2+9*x+21/2)/16
-plot "Bernoulli3.dat" w boxes, (3*x**2+21*x+105/2)/64
-plot "Bernoulli4.dat" w boxes, (3*x**2+45*x+467/2)/256
+plot "Bernoulli0.dat" w points, 3*x**2
+plot "Bernoulli1.dat" w boxes, 1+(x-1.0/2)*3.0/2+(x**2-x+1.0/6)*3.0/4
+plot "Bernoulli2.dat" w boxes, 1+(x-1.0/2)*3.0/4+(x**2-x+1.0/6)*3.0/16
+plot "Bernoulli3.dat" w boxes, 1+(x-1.0/2)*3.0/8+(x**2-x+1.0/6)*3.0/64
+plot "Bernoulli4.dat" w boxes, 1+(x-1.0/2)*3.0/16+(x**2-x+1.0/6)*3.0/256
+
+plot "Bernoulli0.dat" w points, 3*x**2, "Bernoulli1.dat" w points, 1+(x-1.0/2)*3.0/2+(x**2-x+1.0/6)*3.0/4, "Bernoulli2.dat" w points, 1+(x-1.0/2)*3.0/4+(x**2-x+1.0/6)*3.0/16, "Bernoulli3.dat" w points, 1+(x-1.0/2)*3.0/8+(x**2-x+1.0/6)*3.0/64, "Bernoulli4.dat" w points, 1+(x-1.0/2)*3.0/16+(x**2-x+1.0/6)*3.0/256
 
 set terminal png
 set output 'Bernoulli0.png'
@@ -78,16 +80,17 @@ set output 'Bernoulli1.png'
 set output 'Bernoulli2.png'
 set output 'Bernoulli3.png'
 set output 'Bernoulli4.png'
+set output 'Bernoulli0-4.png'
 set output 'PPF.png'
 
 set xlabel "コメ"
 set ylabel "クルマ"
 
-plot "bernoulli_measure1.dat" w points, x-(x**2-x)/4+(x**3-3*x**2/2+x/2)/24
-plot "bernoulli_measure2.dat" w points, x-(x**2-x)/8+(x**3-3*x**2/2+x/2)/96
-plot "bernoulli_measure3.dat" w points, x-(x**2-x)/16+(x**3-3*x**2/2+x/2)/384
-plot "bernoulli_measure4.dat" w points, x-(x**2-x)/32+(x**3-3*x**2/2+x/2)/1536
+plot "bernoulli_measure1.dat" w points, x-(x**2-x)/4+(x**3.0-3.0*x**2/2+x/2)/24
+plot "bernoulli_measure2.dat" w points, x-(x**2-x)/8+(x**3.0-3.0*x**2/2+x/2)/96
+plot "bernoulli_measure3.dat" w points, x-(x**2-x)/16+(x**3.0-3.0*x**2/2+x/2)/384
+plot "bernoulli_measure4.dat" w points, x-(x**2-x)/32+(x**3.0-3.0*x**2/2+x/2)/1536
 
-plot "bernoulli_measure1.dat" w points, x-(x**2-x)/4+(x**3-3*x**2/2+x/2)/24, "bernoulli_measure2.dat" w points, x-(x**2-x)/8+(x**3-3*x**2/2+x/2)/96, "bernoulli_measure3.dat" w points, x-(x**2-x)/16+(x**3-3*x**2/2+x/2)/384, "bernoulli_measure4.dat" w points, x-(x**2-x)/32+(x**3-3*x**2/2+x/2)/1536
+plot "bernoulli_measure1.dat" w points, x-(x**2-x)/4+(x**3.0-3.0*x**2/2+x/2)/24, "bernoulli_measure2.dat" w points, x-(x**2-x)/8+(x**3.0-3.0*x**2/2+x/2)/96, "bernoulli_measure3.dat" w points, x-(x**2-x)/16+(x**3.0-3.0*x**2/2+x/2)/384, "bernoulli_measure4.dat" w points, x-(x**2-x)/32+(x**3.0-3.0*x**2/2+x/2)/1536
 
 set output 'Bernoulli_measure.png'
