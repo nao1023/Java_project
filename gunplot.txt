@@ -82,3 +82,12 @@ set output 'PPF.png'
 
 set xlabel "コメ"
 set ylabel "クルマ"
+
+plot "bernoulli_measure1.dat" w points, x-(x**2-x)/4+(x**3-3*x**2/2+x/2)/24
+plot "bernoulli_measure2.dat" w points, x-(x**2-x)/8+(x**3-3*x**2/2+x/2)/96
+plot "bernoulli_measure3.dat" w points, x-(x**2-x)/16+(x**3-3*x**2/2+x/2)/384
+plot "bernoulli_measure4.dat" w points, x-(x**2-x)/32+(x**3-3*x**2/2+x/2)/1536
+
+plot "bernoulli_measure1.dat" w points, x-(x**2-x)/4+(x**3-3*x**2/2+x/2)/24, "bernoulli_measure2.dat" w points, x-(x**2-x)/8+(x**3-3*x**2/2+x/2)/96, "bernoulli_measure3.dat" w points, x-(x**2-x)/16+(x**3-3*x**2/2+x/2)/384, "bernoulli_measure4.dat" w points, x-(x**2-x)/32+(x**3-3*x**2/2+x/2)/1536
+
+set output 'Bernoulli_measure.png'
